@@ -6,14 +6,16 @@ const saveZonesButton = document.getElementById('saveZones');
 let zones = [];
 let currentZone = null;
 let image = new Image();
+let uploadedImageData = "";  // Store base64 string of uploaded image
 
 // Handle image upload
 imageUpload.addEventListener('change', (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
-    
+
     reader.onload = (event) => {
-        image.src = event.target.result;
+        uploadedImageData = event.target.result;  // Store base64 data
+        image.src = uploadedImageData;
         image.onload = () => {
             canvas.width = image.width;
             canvas.height = image.height;
@@ -61,12 +63,15 @@ function drawZone(zone, color) {
     ctx.fillRect(zone.x, zone.y, zone.width, zone.height);
 }
 
-// Save zones to a JSON file
+// Save zones and image data to JSON
 saveZonesButton.addEventListener('click', () => {
-    const data = { image: image.src, zones };
+    const data = {
+        image: uploadedImageData,  // Save base64 string
+        zones: zones
+    };
     const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
-    
+
     const a = document.createElement('a');
     a.href = url;
     a.download = 'zones-data.json';
