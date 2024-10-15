@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+canvas {
+    border: 2px solid black;
+    margin-top: 10px;
+}
