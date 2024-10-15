@@ -1,0 +1,19 @@
+{
+    "image": "https://your-server-or-github.io/images/main-image.jpg",
+    "zones": [
+        {
+            "x": 50,
+            "y": 30,
+            "width": 100,
+            "height": 80,
+            "popupImage": "https://your-server-or-github.io/images/popup1.jpg"
+        },
+        {
+            "x": 200,
+            "y": 150,
+            "width": 120,
+            "height": 90,
+            "popupImage": "https://your-server-or-github.io/images/popup2.jpg"
+        }
+    ]
+}
